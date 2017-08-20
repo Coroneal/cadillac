@@ -22,7 +22,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <!--Flyway-->
         <flyway.version>4.2.0</flyway.version>
+        <flyway.migrations.dir>filesystem:src/main/resources/db/flyway/migrations</flyway.migrations.dir>
         <!--Maria db-->
         <mariadb.driver.version>1.1.7</mariadb.driver.version>
         <database.url>jdbc:mariadb://localhost:3306/cadillac</database.url>
@@ -113,7 +115,7 @@
                 <configuration>
                     <sqlMigrationSeparator>__</sqlMigrationSeparator>
                     <locations>
-                        <location>filesystem:src/main/resources/flyway/migrations</location>
+                        <location>${flyway.migrations.dir}</location>
                     </locations>
                     <url>${database.url}</url>
                     <user>${database.user}</user>
